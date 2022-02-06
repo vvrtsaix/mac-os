@@ -1,10 +1,13 @@
 import type { NextPage } from 'next'
+import MenuBar from 'widgets/menu-bar'
 
 const Home: NextPage = () => {
   return (
-    <div className="h-36 w-96 bg-blue-800 p-12 text-red-500">
-      <span>Hello Mac OS</span>
-    </div>
+    <main className="h-screen w-screen bg-colorful bg-cover bg-center bg-origin-border">
+      <header>
+        <MenuBar />
+      </header>
+    </main>
   )
 }
 

@@ -1,8 +1,15 @@
 import type { AppProps } from 'next/app'
-import './global.scss'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import 'styles/global.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Component {...pageProps} />
+      <ToastContainer limit={1} />
+    </>
+  )
 }
 
 export default MyApp
