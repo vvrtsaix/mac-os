@@ -1,7 +1,14 @@
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['SF Pro', 'sans-serif'],
+      },
+      backgroundImage: {
+        colorful: 'url("/wallpapers/colorful.jpg")',
+      },
+    },
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
