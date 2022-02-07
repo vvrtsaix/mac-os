@@ -5,6 +5,7 @@ import SearchIcon from 'icons/search.svg'
 import SwitchsIcon from 'icons/switchs.svg'
 import WifiIcon from 'icons/wifi.svg'
 import React, { FC } from 'react'
+import Datetime from './datetime'
 import MenuButton from './menu-button'
 import SiriButton from './siri-button'
 
@@ -50,7 +51,7 @@ const RightMenu: FC<Props> = () => {
         { key: 'siri', value: <SiriButton /> },
         {
           key: 'date',
-          value: <MenuButton>{new Date().toLocaleString()}</MenuButton>,
+          value: <Datetime showSeconds />,
         },
       ]}
       render={(record) => (
