@@ -15,7 +15,56 @@ const LeftMenu: FC<Props> = () => {
         {
           key: 'logo',
           value: (
-            <MenuButton>
+            <MenuButton
+              placement={DropdownMenuPlacement.LEFT}
+              records={[
+                { key: 'about-this-mac', value: 'About This Mac' },
+                { key: 'div1', type: 'divider' },
+                {
+                  key: 'system-preferences',
+                  value: 'System Preferences...',
+                },
+                {
+                  key: 'app-store',
+                  value: 'App Store...',
+                },
+                { key: 'div2', type: 'divider' },
+                {
+                  key: 'recent-items',
+                  value: 'Recent Items',
+                },
+                { key: 'div3', type: 'divider' },
+                {
+                  key: 'force-quit',
+                  value: 'Force Quit...',
+                  shortcut: '⌥⌘⎋',
+                },
+                { key: 'div4', type: 'divider' },
+                {
+                  key: 'sleep',
+                  value: 'Sleep',
+                },
+                {
+                  key: 'restart',
+                  value: 'Restart...',
+                },
+                {
+                  key: 'shut-down',
+                  value: 'Shut Down...',
+                },
+                { key: 'div5', type: 'divider' },
+                {
+                  key: 'lock-screen',
+                  value: 'Lock Screen',
+                  shortcut: '⌃⌘Q',
+                },
+                {
+                  key: 'log-out-user',
+                  value: 'Log Out Uurtsaikh Nyambat',
+                  shortcut: '⇧⌘Q',
+                },
+              ]}
+            >
               <AppleLogoIcon className="h-5 w-5" />
             </MenuButton>
           ),
@@ -188,7 +237,61 @@ const LeftMenu: FC<Props> = () => {
             </MenuButton>
           ),
         },
-        { key: 'edit', value: <MenuButton>Edit</MenuButton> },
+        {
+          key: 'edit',
+          value: (
+            <MenuButton
+              placement={DropdownMenuPlacement.LEFT}
+              records={[
+                {
+                  key: 'undo-move-of-4-items',
+                  value: 'Undo Move of 4 Items',
+                  shortcut: '⌘Z',
+                },
+                {
+                  key: 'redo',
+                  value: 'Redo',
+                  shortcut: '⇧⌘Z',
+                },
+                { key: 'div1', type: 'divider' },
+                {
+                  key: 'cut',
+                  value: 'Cut',
+                  shortcut: '⌘X',
+                },
+                {
+                  key: 'copy',
+                  value: 'Copy',
+                  shortcut: '⌘C',
+                },
+                {
+                  key: 'paste',
+                  value: 'Paste',
+                  shortcut: '⌘V',
+                },
+                {
+                  key: 'select-all',
+                  value: 'Select All',
+                  shortcut: '⌘A',
+                },
+                { key: 'div2', type: 'divider' },
+                { key: 'show-clipboard', value: 'Show Clipboard' },
+                { key: 'div3', type: 'divider' },
+                {
+                  key: 'start-dictation',
+                  value: 'Start Dictation...',
+                },
+                {
+                  key: 'emoji-symbols',
+                  value: 'Emoji & Symbols',
+                  shortcut: '🌐E',
+                },
+              ]}
+            >
+              Edit
+            </MenuButton>
+          ),
+        },
         { key: 'view', value: <MenuButton>View</MenuButton> },
         { key: 'go', value: <MenuButton>Go</MenuButton> },
         { key: 'window', value: <MenuButton>Window</MenuButton> },
