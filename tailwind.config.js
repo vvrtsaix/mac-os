@@ -14,7 +14,7 @@ module.exports = {
         sans: ['SF Pro', 'sans-serif'],
       },
       backgroundImage: {
-        colorful: 'url("/wallpapers/colorful.jpg")',
+        colorful: `url("${process.env.NEXT_PUBLIC_BASE_PATH}/wallpapers/colorful.jpg")`,
       },
     },
   },

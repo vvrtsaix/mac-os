@@ -2,9 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -13,22 +13,28 @@ jobs:
       matrix:
         node-version: [16.x]
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: Install packages
-      run: npm ci
-    - name: Build project
-      run: npm run build
-    - name: Export static files
-      run: npm run export
-    - name: Add .nojekyll file
-      run: touch ./out/.nojekyll
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@4.1.1
-      with:
-        branch: gh-pages
-        folder: out
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Install packages
+        run: npm ci
+      - name: Build project
+        run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /mac-os
+          NEXT_PUBLIC_IMAGE_PATH: https://vvrtsaix.github.io/mac-os/
+      - name: Export static files
+        run: npm run export
+        env:
+          NEXT_PUBLIC_BASE_PATH: /mac-os
+          NEXT_PUBLIC_IMAGE_PATH: https://vvrtsaix.github.io/mac-os/
+      - name: Add .nojekyll file
+        run: touch ./out/.nojekyll
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: out
