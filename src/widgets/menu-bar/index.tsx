@@ -8,7 +8,7 @@ const MenuBar: FC<Props> = () => {
   return (
     <nav
       aria-label="menu-bar"
-      className="flex flex-row items-center justify-between bg-[#5a78b495] px-4 py-1 text-[#fcffff]"
+      className="flex flex-row items-center justify-between bg-primary/10 px-4 text-[#fcffff] backdrop-blur"
     >
       <LeftMenu />
       <RightMenu />

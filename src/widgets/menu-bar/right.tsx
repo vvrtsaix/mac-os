@@ -8,7 +8,7 @@ import React, { FC } from 'react'
 import MenuButton from './menu-button'
 import SiriButton from './siri-button'
 
-type Props = {}
+interface Props {}
 
 const RightMenu: FC<Props> = () => {
   return (

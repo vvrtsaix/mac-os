@@ -11,11 +11,11 @@ const SiriButton: FC<Props> = ({ size = 24 }) => {
 
   return (
     <button
-      className="h-6 rounded px-3 align-middle focus:bg-[#ffffff30] active:bg-[#ffffff30]"
+      className="h-6 rounded px-3 align-middle focus:bg-white/30 active:bg-white/30"
       onClick={() => {
         video.current?.play()
         toast(
-          <div className="flex flex-col items-center justify-center gap-2 p-1 text-sm text-white">
+          <div className="flex flex-col items-center justify-center gap-2 p-1 text-sm text-white-text">
             <SiriText />
             <video
               loop

@@ -1,12 +1,8 @@
 import { Menu, Transition } from '@headlessui/react'
 import classNames from 'classnames'
 import React, { FC, Fragment } from 'react'
-import DropdownMenuItem, { MenuItemRecord } from './dropdown-menu-item'
-
-export enum DropdownMenuPlacement {
-  RIGHT = 'right',
-  LEFT = 'left',
-}
+import DropdownMenuItem from './dropdown-menu-item'
+import { DropdownMenuPlacement, MenuItemRecord } from './types'
 
 interface Props {
   placement?: DropdownMenuPlacement
@@ -31,7 +27,7 @@ const DropdownMenu: FC<Props> = ({
         as="ul"
         className={classNames(
           placement === DropdownMenuPlacement.RIGHT ? 'right-0' : 'left-0',
-          'absolute mt-2 origin-top-right rounded-md bg-slate-200 p-1 focus:outline-none'
+          'absolute mt-2 origin-top-right rounded bg-white/80 p-1 backdrop-blur focus:outline-none'
         )}
       >
         {records.map((record) => (

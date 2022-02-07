@@ -3,8 +3,9 @@ import ListItem from 'components/list/item'
 import AppleLogoIcon from 'icons/apple-logo.svg'
 import React, { FC } from 'react'
 import MenuButton from './menu-button'
+import { DropdownMenuPlacement } from './menu-button/types'
 
-type Props = {}
+interface Props {}
 
 const LeftMenu: FC<Props> = () => {
   return (
@@ -21,7 +22,49 @@ const LeftMenu: FC<Props> = () => {
         },
         {
           key: 'finder',
-          value: <MenuButton className="font-bold">Finder</MenuButton>,
+          value: (
+            <MenuButton
+              className="font-bold"
+              placement={DropdownMenuPlacement.LEFT}
+              records={[
+                { key: 'about', value: 'About Finder' },
+                { key: 'div1', type: 'divider' },
+                {
+                  key: 'preferences',
+                  value: 'Preferences...',
+                  shortcut: '⌘ ,',
+                },
+                { key: 'div2', type: 'divider' },
+                {
+                  key: 'emtry-trash',
+                  value: 'Empty Trash...',
+                  shortcut: '⇧⌘⌫',
+                },
+                { key: 'div3', type: 'divider' },
+                {
+                  key: 'services',
+                  value: 'Services',
+                },
+                { key: 'div4', type: 'divider' },
+                {
+                  key: 'hide-finder',
+                  value: 'Hide Finder',
+                  shortcut: '⌘H',
+                },
+                {
+                  key: 'hide-others',
+                  value: 'Hide Others',
+                  shortcut: '⌥⌘H',
+                },
+                {
+                  key: 'show-all',
+                  value: 'Show All',
+                },
+              ]}
+            >
+              Finder
+            </MenuButton>
+          ),
         },
         { key: 'file', value: <MenuButton>File</MenuButton> },
         { key: 'edit', value: <MenuButton>Edit</MenuButton> },
