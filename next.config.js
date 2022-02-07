@@ -10,7 +10,7 @@ const nextConfig = {
   },
   images: {
     loader: 'imgix',
-    path: 'https://vvrtsaix.github.io/',
+    path: 'https://vvrtsaix.github.io/mac-os/',
   },
   webpack(config) {
     config.module.rules.push({
