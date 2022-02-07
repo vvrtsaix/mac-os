@@ -7,6 +7,10 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  images: {
+    loader: 'imgix',
+    path: 'https://vvrtsaix.github.io/',
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
