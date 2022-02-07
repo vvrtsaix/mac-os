@@ -2,7 +2,6 @@ import List from 'components/list'
 import ListItem from 'components/list/item'
 import AppleLogoIcon from 'icons/apple-logo.svg'
 import React, { FC } from 'react'
-import { toast } from 'react-toastify'
 import MenuButton from './menu-button'
 
 type Props = {}
@@ -22,23 +21,7 @@ const LeftMenu: FC<Props> = () => {
         },
         {
           key: 'finder',
-          value: (
-            <MenuButton
-              className="font-bold"
-              onClick={() => {
-                toast('🦄 Wow so easy!', {
-                  position: 'top-right',
-                  autoClose: 10000,
-                  hideProgressBar: true,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                })
-              }}
-            >
-              Finder
-            </MenuButton>
-          ),
+          value: <MenuButton className="font-bold">Finder</MenuButton>,
         },
         { key: 'file', value: <MenuButton>File</MenuButton> },
         { key: 'edit', value: <MenuButton>Edit</MenuButton> },
