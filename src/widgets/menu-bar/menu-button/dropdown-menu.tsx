@@ -27,7 +27,7 @@ const DropdownMenu: FC<Props> = ({
         as="ul"
         className={classNames(
           placement === DropdownMenuPlacement.RIGHT ? 'right-0' : 'left-0',
-          'absolute mt-2 origin-top-right rounded bg-white/80 p-1 backdrop-blur focus:outline-none'
+          'absolute origin-top-right rounded bg-white/80 p-1 backdrop-blur focus:outline-none'
         )}
       >
         {records.map((record) => (
