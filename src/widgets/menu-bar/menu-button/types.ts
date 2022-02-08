@@ -1,5 +1,5 @@
 export interface MenuItemData {
-  type?: undefined
+  type?: 'custom'
   key: string
   value: React.ReactNode
   shortcut?: React.ReactNode

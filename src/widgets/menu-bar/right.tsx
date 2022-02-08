@@ -7,6 +7,7 @@ import WifiIcon from 'icons/wifi.svg'
 import React, { FC } from 'react'
 import Datetime from './datetime'
 import MenuButton from './menu-button'
+import { DropdownMenuPlacement } from './menu-button/types'
 import SiriButton from './siri-button'
 
 interface Props {}
@@ -19,7 +20,48 @@ const RightMenu: FC<Props> = () => {
         {
           key: 'battery',
           value: (
-            <MenuButton>
+            <MenuButton
+              placement={DropdownMenuPlacement.LEFT}
+              records={[
+                {
+                  type: 'custom',
+                  key: 'barrery',
+                  value: (
+                    <div className="mb-1 w-full whitespace-nowrap px-2 text-left text-xs font-bold text-black-text">
+                      Battery
+                    </div>
+                  ),
+                },
+                {
+                  type: 'custom',
+                  key: 'power-source',
+                  value: (
+                    <span className="w-full whitespace-nowrap px-2 text-left text-xs text-black-text">
+                      Power Source: Battery
+                    </span>
+                  ),
+                },
+                { key: 'div1', type: 'divider' },
+                {
+                  type: 'custom',
+                  key: 'using-significant-energy',
+                  value: (
+                    <span className="w-full whitespace-nowrap px-2 text-left text-xs font-bold text-black-text">
+                      Using Significant Energy
+                    </span>
+                  ),
+                },
+                {
+                  key: 'chrome',
+                  value: '🌏 Chrome.app',
+                },
+                { key: 'div2', type: 'divider' },
+                {
+                  key: 'battery-preferences',
+                  value: 'Battery Preferences...',
+                },
+              ]}
+            >
               <BatteryIcon className="h-6 w-6" />
             </MenuButton>
           ),

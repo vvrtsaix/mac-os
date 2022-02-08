@@ -205,9 +205,9 @@ const LeftMenu: FC<Props> = () => {
                   shortcut: '⌘R',
                 },
                 {
-                  key: 'add-to-dock',
-                  value: 'Add to Dock',
-                  shortcut: '⌃⇧⌘T',
+                  key: 'add-to-sidebar',
+                  value: 'Add to Sidebar',
+                  shortcut: '⌃⌘T',
                 },
                 { key: 'div4', type: 'divider' },
                 {
@@ -244,8 +244,8 @@ const LeftMenu: FC<Props> = () => {
               placement={DropdownMenuPlacement.LEFT}
               records={[
                 {
-                  key: 'undo-move-of-4-items',
-                  value: 'Undo Move of 4 Items',
+                  key: 'undo',
+                  value: 'Undo',
                   shortcut: '⌘Z',
                 },
                 {
@@ -292,10 +292,194 @@ const LeftMenu: FC<Props> = () => {
             </MenuButton>
           ),
         },
-        { key: 'view', value: <MenuButton>View</MenuButton> },
-        { key: 'go', value: <MenuButton>Go</MenuButton> },
-        { key: 'window', value: <MenuButton>Window</MenuButton> },
-        { key: 'help', value: <MenuButton>Help</MenuButton> },
+        {
+          key: 'view',
+          value: (
+            <MenuButton
+              placement={DropdownMenuPlacement.LEFT}
+              records={[
+                {
+                  key: 'use-stacks',
+                  value: '✓ Use Stacks',
+                  shortcut: '⌃⌘O',
+                },
+              ]}
+            >
+              View
+            </MenuButton>
+          ),
+        },
+        {
+          key: 'go',
+          value: (
+            <MenuButton
+              placement={DropdownMenuPlacement.LEFT}
+              records={[
+                {
+                  key: 'back',
+                  value: 'Back',
+                  shortcut: '⌘[',
+                },
+                {
+                  key: 'forward',
+                  value: 'Forward',
+                  shortcut: '⌘]',
+                },
+                {
+                  key: 'enclosing-folder',
+                  value: 'Enclosing Folder',
+                  shortcut: '⌘▲',
+                },
+                { key: 'div1', type: 'divider' },
+                {
+                  key: 'recents',
+                  value: 'Recents',
+                  shortcut: '⇧⌘F',
+                },
+                {
+                  key: 'documents',
+                  value: 'Documents',
+                  shortcut: '⇧⌘O',
+                },
+                {
+                  key: 'desktop',
+                  value: 'Desktop',
+                  shortcut: '⇧⌘D',
+                },
+                {
+                  key: 'downloads',
+                  value: 'Downloads',
+                  shortcut: '⇧⌘L',
+                },
+                {
+                  key: 'home',
+                  value: 'Home',
+                  shortcut: '⇧⌘H',
+                },
+                {
+                  key: 'library',
+                  value: 'Library',
+                  shortcut: '⇧⌘L',
+                },
+                {
+                  key: 'computer',
+                  value: 'Computer',
+                  shortcut: '⇧⌘C',
+                },
+                {
+                  key: 'airdrop',
+                  value: 'Airdrop',
+                  shortcut: '⇧⌘R',
+                },
+                {
+                  key: 'network',
+                  value: 'Network',
+                  shortcut: '⇧⌘K',
+                },
+                {
+                  key: 'icloud-drive',
+                  value: 'ICloud Drive',
+                  shortcut: '⇧⌘I',
+                },
+                {
+                  key: 'shared',
+                  value: 'Shared',
+                  shortcut: '⇧⌘S',
+                },
+                {
+                  key: 'applications',
+                  value: 'applications',
+                  shortcut: '⇧⌘A',
+                },
+                {
+                  key: 'utilities',
+                  value: 'Utilities',
+                  shortcut: '⇧⌘U',
+                },
+                { key: 'div2', type: 'divider' },
+                {
+                  key: 'recent-folders',
+                  value: 'Recent Folders',
+                },
+                { key: 'div3', type: 'divider' },
+                {
+                  key: 'go-to-folder',
+                  value: 'Go to Folder...',
+                  shortcut: '⇧⌘G',
+                },
+                {
+                  key: 'connect-to-server',
+                  value: 'Connect to Server...',
+                  shortcut: '⌘K',
+                },
+              ]}
+            >
+              Go
+            </MenuButton>
+          ),
+        },
+        {
+          key: 'window',
+          value: (
+            <MenuButton
+              placement={DropdownMenuPlacement.LEFT}
+              records={[
+                {
+                  key: 'minimize',
+                  value: 'Minimize',
+                  shortcut: '⌘M',
+                },
+                {
+                  key: 'zoom',
+                  value: 'Zoom',
+                },
+                { key: 'div1', type: 'divider' },
+                {
+                  key: 'bring-all-to-front',
+                  value: 'Bring All to Front',
+                },
+              ]}
+            >
+              Window
+            </MenuButton>
+          ),
+        },
+        {
+          key: 'help',
+          value: (
+            <MenuButton
+              placement={DropdownMenuPlacement.LEFT}
+              records={[
+                {
+                  type: 'custom',
+                  key: 'search',
+                  value: (
+                    <input
+                      type="search"
+                      placeholder="Search"
+                      className="focus:border-1 mb-1 w-full rounded border-gray-400 bg-white/40 px-2 py-0.5 align-middle text-xs text-black-text focus:border-gray-400 focus:outline-none focus:ring-0"
+                    />
+                  ),
+                },
+                {
+                  key: 'macos-help',
+                  value: 'macOS Help',
+                },
+                { key: 'div1', type: 'divider' },
+                {
+                  key: 'see-what-s-new-in-macos',
+                  value: 'See What’s New in macOS',
+                },
+                {
+                  key: 'new-to-macos-learn-the-basics',
+                  value: 'New to macOS? Learn the Basics',
+                },
+              ]}
+            >
+              Help
+            </MenuButton>
+          ),
+        },
       ]}
       render={(record) => (
         <ListItem key={record.key} className="flex items-center justify-center">

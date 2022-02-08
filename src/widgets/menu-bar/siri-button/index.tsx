@@ -6,12 +6,12 @@ interface Props {
   size?: number
 }
 
-const SiriButton: FC<Props> = ({ size = 24 }) => {
+const SiriButton: FC<Props> = ({ size = 18 }) => {
   const video = useRef<HTMLVideoElement>(null)
 
   return (
     <button
-      className="h-6 rounded px-3 align-middle focus:bg-white/30 active:bg-white/30"
+      className="flex h-6 items-center justify-center rounded px-3 align-middle focus:bg-white/30 focus-visible:outline-none focus-visible:ring-0 active:bg-white/30"
       onClick={() => {
         video.current?.play()
         toast(
@@ -31,7 +31,7 @@ const SiriButton: FC<Props> = ({ size = 24 }) => {
           {
             position: toast.POSITION.TOP_RIGHT,
             role: 'siri',
-            className: 'top-8 right-2 bg-slate-700/80',
+            className: 'top-8 right-2 bg-gray-500 rounded-lg',
             autoClose: 8000,
             hideProgressBar: true,
             closeOnClick: true,
@@ -44,8 +44,8 @@ const SiriButton: FC<Props> = ({ size = 24 }) => {
       <Image
         width={size}
         height={size}
-        src="/images/siri-orb.png"
         alt="siri-orb"
+        src="/images/siri-orb.png"
       />
     </button>
   )

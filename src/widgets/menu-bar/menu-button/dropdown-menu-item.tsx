@@ -15,6 +15,13 @@ const DropdownMenuItem: FC<Props> = ({ record }) => {
       </div>
     )
   }
+  if (record.type === 'custom') {
+    return (
+      <Menu.Item as="li" className="flex items-center justify-center">
+        {record.value}
+      </Menu.Item>
+    )
+  }
   return (
     <Menu.Item as="li">
       {({ active }) => (
