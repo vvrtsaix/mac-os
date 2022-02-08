@@ -31,7 +31,19 @@ const DropdownMenuItem: FC<Props> = ({ record }) => {
             'flex w-full items-center justify-between whitespace-nowrap rounded px-2 py-0.5 text-xs'
           )}
         >
-          {record.value}
+          {record.icon ? (
+            <div
+              className={classNames(
+                'flex flex-row items-center justify-center',
+                record.iconGap || 'gap-1'
+              )}
+            >
+              <span>{record.icon}</span>
+              <span>{record.value}</span>
+            </div>
+          ) : (
+            record.value
+          )}
           {record.shortcut && (
             <span
               className={classNames(

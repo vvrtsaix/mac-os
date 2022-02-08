@@ -284,7 +284,7 @@ const LeftMenu: FC<Props> = () => {
                 {
                   key: 'emoji-symbols',
                   value: 'Emoji & Symbols',
-                  shortcut: '🌐E',
+                  shortcut: '🌐 E',
                 },
               ]}
             >
@@ -300,7 +300,8 @@ const LeftMenu: FC<Props> = () => {
               records={[
                 {
                   key: 'use-stacks',
-                  value: '✓ Use Stacks',
+                  icon: '✓',
+                  value: 'Use Stacks',
                   shortcut: '⌃⌘O',
                 },
               ]}

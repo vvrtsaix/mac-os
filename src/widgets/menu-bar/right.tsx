@@ -1,9 +1,9 @@
 import List from 'components/list'
 import ListItem from 'components/list/item'
 import BatteryIcon from 'icons/battery.svg'
-import SwitchsIcon from 'icons/switchs.svg'
 import WifiIcon from 'icons/wifi.svg'
 import React, { FC } from 'react'
+import ControlButton from './control-button'
 import Datetime from './datetime'
 import MenuButton from './menu-button'
 import { DropdownMenuPlacement } from './menu-button/types'
@@ -53,11 +53,15 @@ const RightMenu: FC<Props> = () => {
                 },
                 {
                   key: 'vscode',
-                  value: '🚾 Visual Studio Code.app',
+                  icon: '🚾',
+                  iconGap: 'gap-2',
+                  value: 'Visual Studio Code.app',
                 },
                 {
                   key: 'chrome',
-                  value: '🌏 Chrome.app',
+                  icon: '🌏',
+                  iconGap: 'gap-2',
+                  value: 'Chrome.app',
                 },
                 { key: 'div2', type: 'divider' },
                 {
@@ -86,23 +90,10 @@ const RightMenu: FC<Props> = () => {
             </MenuButton>
           ),
         },
-        {
-          key: 'search',
-          value: <SearchButton />,
-        },
-        {
-          key: 'switchs',
-          value: (
-            <MenuButton>
-              <SwitchsIcon className="h-5 w-5" />
-            </MenuButton>
-          ),
-        },
+        { key: 'search', value: <SearchButton /> },
+        { key: 'control', value: <ControlButton /> },
         { key: 'siri', value: <SiriButton /> },
-        {
-          key: 'date',
-          value: <Datetime showSeconds />,
-        },
+        { key: 'date', value: <Datetime showSeconds /> },
       ]}
       render={(record) => (
         <ListItem key={record.key} className="flex items-center justify-center">
