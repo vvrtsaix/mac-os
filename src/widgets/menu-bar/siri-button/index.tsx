@@ -31,7 +31,7 @@ const SiriButton: FC<Props> = ({ size = 18 }) => {
           {
             position: toast.POSITION.TOP_RIGHT,
             role: 'siri',
-            className: 'top-8 right-2 bg-gray-500 rounded-lg',
+            className: 'top-8 right-2 rounded-lg bg-gray-500 shadow',
             autoClose: 8000,
             hideProgressBar: true,
             closeOnClick: true,

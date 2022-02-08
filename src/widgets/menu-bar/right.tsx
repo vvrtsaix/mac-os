@@ -1,13 +1,13 @@
 import List from 'components/list'
 import ListItem from 'components/list/item'
 import BatteryIcon from 'icons/battery.svg'
-import SearchIcon from 'icons/search.svg'
 import SwitchsIcon from 'icons/switchs.svg'
 import WifiIcon from 'icons/wifi.svg'
 import React, { FC } from 'react'
 import Datetime from './datetime'
 import MenuButton from './menu-button'
 import { DropdownMenuPlacement } from './menu-button/types'
+import SearchButton from './search-button'
 import SiriButton from './siri-button'
 
 interface Props {}
@@ -52,6 +52,10 @@ const RightMenu: FC<Props> = () => {
                   ),
                 },
                 {
+                  key: 'vscode',
+                  value: '🚾 Visual Studio Code.app',
+                },
+                {
                   key: 'chrome',
                   value: '🌏 Chrome.app',
                 },
@@ -69,18 +73,22 @@ const RightMenu: FC<Props> = () => {
         {
           key: 'wifi',
           value: (
-            <MenuButton>
+            <MenuButton
+              placement={DropdownMenuPlacement.LEFT}
+              records={[
+                {
+                  key: 'wifi',
+                  value: 'Wi-Fi',
+                },
+              ]}
+            >
               <WifiIcon className="h-5 w-5" />
             </MenuButton>
           ),
         },
         {
           key: 'search',
-          value: (
-            <MenuButton>
-              <SearchIcon className="h-4 w-4" />
-            </MenuButton>
-          ),
+          value: <SearchButton />,
         },
         {
           key: 'switchs',
