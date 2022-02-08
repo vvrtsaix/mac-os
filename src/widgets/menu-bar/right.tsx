@@ -3,7 +3,7 @@ import ListItem from 'components/list/item'
 import BatteryIcon from 'icons/battery.svg'
 import WifiIcon from 'icons/wifi.svg'
 import React, { FC } from 'react'
-import ControlButton from './control-button'
+import ControlMenu from './control-menu'
 import Datetime from './datetime'
 import MenuButton from './menu-button'
 import { DropdownMenuPlacement } from './menu-button/types'
@@ -91,7 +91,7 @@ const RightMenu: FC<Props> = () => {
           ),
         },
         { key: 'search', value: <SearchButton /> },
-        { key: 'control', value: <ControlButton /> },
+        { key: 'control', value: <ControlMenu /> },
         { key: 'siri', value: <SiriButton /> },
         { key: 'date', value: <Datetime showSeconds /> },
       ]}

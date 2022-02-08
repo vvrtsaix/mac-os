@@ -1,8 +1,14 @@
 import { Popover, Transition } from '@headlessui/react'
+import AirdropIcon from 'icons/airdrop.svg'
+import ForwardIcon from 'icons/forward.svg'
+import MusicIcon from 'icons/music.svg'
+import PlayIcon from 'icons/play.svg'
 import SwitchsIcon from 'icons/switchs.svg'
 import React, { FC, Fragment } from 'react'
 import ControlButton from './components/button'
+import IconSwitch from './components/icon-switch'
 import ControlPanel from './components/panel'
+import ControlRangeInput from './components/range'
 import ConnectionPanel from './connection-panel'
 import FocusPanel from './focus-panel'
 
@@ -46,13 +52,41 @@ const ControlMenu: FC<Props> = () => {
                   />
                 </ControlPanel>
                 <ControlPanel row="row-span-1" col="col-span-4">
-                  <FocusPanel />
+                  <ControlRangeInput
+                    id="brihtness"
+                    label="Display"
+                    prefix="☀︎"
+                  />
                 </ControlPanel>
                 <ControlPanel row="row-span-1" col="col-span-4">
-                  <FocusPanel />
+                  <ControlRangeInput
+                    id="volumes"
+                    label="Sound"
+                    prefix="∰"
+                    suffix={
+                      <IconSwitch value={false}>
+                        <AirdropIcon className="h-4 w-4" />
+                      </IconSwitch>
+                    }
+                  />
                 </ControlPanel>
                 <ControlPanel row="row-span-1" col="col-span-4">
-                  <FocusPanel />
+                  <div className="flex flex-row items-center justify-between">
+                    <div className="flex flex-row items-center justify-between gap-2">
+                      <div className="rounded-md bg-red-500 p-2 text-white-text">
+                        <MusicIcon className="h-4 w-4" />
+                      </div>
+                      <h5 className="text-sm text-black-text">Music.app</h5>
+                    </div>
+                    <div className="mr-2 flex flex-row items-center justify-between gap-2">
+                      <button className="text-gray-500">
+                        <PlayIcon className="h-6 w-6" />
+                      </button>
+                      <button className="text-gray-500">
+                        <ForwardIcon className="h-4 w-4" />
+                      </button>
+                    </div>
+                  </div>
                 </ControlPanel>
               </div>
             </Popover.Panel>

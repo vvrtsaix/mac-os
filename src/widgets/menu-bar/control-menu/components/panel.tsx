@@ -14,7 +14,7 @@ const ControlPanel: FC<Props> = ({
   return (
     <div
       className={classNames(
-        'flex flex-col justify-center gap-3 rounded-xl bg-white/80 p-2 shadow',
+        'flex flex-col justify-center gap-3 rounded-xl bg-white/50 p-2 shadow backdrop-blur',
         col,
         row
       )}
