@@ -3,20 +3,19 @@ import ListItem from 'components/list/item'
 import AppleLogoIcon from 'icons/apple-logo.svg'
 import React, { FC } from 'react'
 import MenuButton from './menu-button'
-import { DropdownMenuPlacement } from './menu-button/types'
 
 interface Props {}
 
 const LeftMenu: FC<Props> = () => {
   return (
     <List
+      horizontal
       label="left-menu"
       dataSource={[
         {
           key: 'logo',
           value: (
             <MenuButton
-              placement={DropdownMenuPlacement.LEFT}
               records={[
                 { key: 'about-this-mac', value: 'About This Mac' },
                 { key: 'div1', type: 'divider' },
@@ -74,7 +73,6 @@ const LeftMenu: FC<Props> = () => {
           value: (
             <MenuButton
               className="font-bold"
-              placement={DropdownMenuPlacement.LEFT}
               records={[
                 { key: 'about', value: 'About Finder' },
                 { key: 'div1', type: 'divider' },
@@ -119,7 +117,6 @@ const LeftMenu: FC<Props> = () => {
           key: 'file',
           value: (
             <MenuButton
-              placement={DropdownMenuPlacement.LEFT}
               records={[
                 {
                   key: 'new-finder-window',
@@ -205,9 +202,9 @@ const LeftMenu: FC<Props> = () => {
                   shortcut: '⌘R',
                 },
                 {
-                  key: 'add-to-dock',
-                  value: 'Add to Dock',
-                  shortcut: '⌃⇧⌘T',
+                  key: 'add-to-sidebar',
+                  value: 'Add to Sidebar',
+                  shortcut: '⌃⌘T',
                 },
                 { key: 'div4', type: 'divider' },
                 {
@@ -241,11 +238,10 @@ const LeftMenu: FC<Props> = () => {
           key: 'edit',
           value: (
             <MenuButton
-              placement={DropdownMenuPlacement.LEFT}
               records={[
                 {
-                  key: 'undo-move-of-4-items',
-                  value: 'Undo Move of 4 Items',
+                  key: 'undo',
+                  value: 'Undo',
                   shortcut: '⌘Z',
                 },
                 {
@@ -284,7 +280,7 @@ const LeftMenu: FC<Props> = () => {
                 {
                   key: 'emoji-symbols',
                   value: 'Emoji & Symbols',
-                  shortcut: '🌐E',
+                  shortcut: '🌐 E',
                 },
               ]}
             >
@@ -292,10 +288,191 @@ const LeftMenu: FC<Props> = () => {
             </MenuButton>
           ),
         },
-        { key: 'view', value: <MenuButton>View</MenuButton> },
-        { key: 'go', value: <MenuButton>Go</MenuButton> },
-        { key: 'window', value: <MenuButton>Window</MenuButton> },
-        { key: 'help', value: <MenuButton>Help</MenuButton> },
+        {
+          key: 'view',
+          value: (
+            <MenuButton
+              records={[
+                {
+                  key: 'use-stacks',
+                  icon: '✓',
+                  value: 'Use Stacks',
+                  shortcut: '⌃⌘O',
+                },
+              ]}
+            >
+              View
+            </MenuButton>
+          ),
+        },
+        {
+          key: 'go',
+          value: (
+            <MenuButton
+              records={[
+                {
+                  key: 'back',
+                  value: 'Back',
+                  shortcut: '⌘[',
+                },
+                {
+                  key: 'forward',
+                  value: 'Forward',
+                  shortcut: '⌘]',
+                },
+                {
+                  key: 'enclosing-folder',
+                  value: 'Enclosing Folder',
+                  shortcut: '⌘▲',
+                },
+                { key: 'div1', type: 'divider' },
+                {
+                  key: 'recents',
+                  value: 'Recents',
+                  shortcut: '⇧⌘F',
+                },
+                {
+                  key: 'documents',
+                  value: 'Documents',
+                  shortcut: '⇧⌘O',
+                },
+                {
+                  key: 'desktop',
+                  value: 'Desktop',
+                  shortcut: '⇧⌘D',
+                },
+                {
+                  key: 'downloads',
+                  value: 'Downloads',
+                  shortcut: '⇧⌘L',
+                },
+                {
+                  key: 'home',
+                  value: 'Home',
+                  shortcut: '⇧⌘H',
+                },
+                {
+                  key: 'library',
+                  value: 'Library',
+                  shortcut: '⇧⌘L',
+                },
+                {
+                  key: 'computer',
+                  value: 'Computer',
+                  shortcut: '⇧⌘C',
+                },
+                {
+                  key: 'airdrop',
+                  value: 'Airdrop',
+                  shortcut: '⇧⌘R',
+                },
+                {
+                  key: 'network',
+                  value: 'Network',
+                  shortcut: '⇧⌘K',
+                },
+                {
+                  key: 'icloud-drive',
+                  value: 'ICloud Drive',
+                  shortcut: '⇧⌘I',
+                },
+                {
+                  key: 'shared',
+                  value: 'Shared',
+                  shortcut: '⇧⌘S',
+                },
+                {
+                  key: 'applications',
+                  value: 'applications',
+                  shortcut: '⇧⌘A',
+                },
+                {
+                  key: 'utilities',
+                  value: 'Utilities',
+                  shortcut: '⇧⌘U',
+                },
+                { key: 'div2', type: 'divider' },
+                {
+                  key: 'recent-folders',
+                  value: 'Recent Folders',
+                },
+                { key: 'div3', type: 'divider' },
+                {
+                  key: 'go-to-folder',
+                  value: 'Go to Folder...',
+                  shortcut: '⇧⌘G',
+                },
+                {
+                  key: 'connect-to-server',
+                  value: 'Connect to Server...',
+                  shortcut: '⌘K',
+                },
+              ]}
+            >
+              Go
+            </MenuButton>
+          ),
+        },
+        {
+          key: 'window',
+          value: (
+            <MenuButton
+              records={[
+                {
+                  key: 'minimize',
+                  value: 'Minimize',
+                  shortcut: '⌘M',
+                },
+                {
+                  key: 'zoom',
+                  value: 'Zoom',
+                },
+                { key: 'div1', type: 'divider' },
+                {
+                  key: 'bring-all-to-front',
+                  value: 'Bring All to Front',
+                },
+              ]}
+            >
+              Window
+            </MenuButton>
+          ),
+        },
+        {
+          key: 'help',
+          value: (
+            <MenuButton
+              records={[
+                {
+                  type: 'custom',
+                  key: 'search',
+                  value: (
+                    <input
+                      type="search"
+                      placeholder="Search"
+                      className="focus:border-1 mb-1 w-full rounded border-gray-400 bg-white/40 px-2 py-0.5 align-middle text-xs text-black-text focus:border-gray-400 focus:outline-none focus:ring-0"
+                    />
+                  ),
+                },
+                {
+                  key: 'macos-help',
+                  value: 'macOS Help',
+                },
+                { key: 'div1', type: 'divider' },
+                {
+                  key: 'see-what-s-new-in-macos',
+                  value: 'See What’s New in macOS',
+                },
+                {
+                  key: 'new-to-macos-learn-the-basics',
+                  value: 'New to macOS? Learn the Basics',
+                },
+              ]}
+            >
+              Help
+            </MenuButton>
+          ),
+        },
       ]}
       render={(record) => (
         <ListItem key={record.key} className="flex items-center justify-center">

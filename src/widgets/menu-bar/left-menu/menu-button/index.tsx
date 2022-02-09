@@ -14,20 +14,18 @@ interface Props {
 const MenuButton: FC<Props> = ({
   className,
   children,
+  onClick,
   records = [],
   placement = DropdownMenuPlacement.LEFT,
-  onClick = () => {},
 }) => {
   return (
     <Menu as="div" className="relative inline-block text-center">
       <Menu.Button
         className={classNames(
-          'h-6 rounded px-3 align-middle text-sm focus:bg-white/30 active:bg-white/30',
+          'h-6 rounded px-3 align-middle text-sm focus:bg-white/30 focus-visible:outline-none focus-visible:ring-0 active:bg-white/30',
           className
         )}
-        onClick={() => {
-          onClick()
-        }}
+        onClick={onClick}
       >
         {children}
       </Menu.Button>

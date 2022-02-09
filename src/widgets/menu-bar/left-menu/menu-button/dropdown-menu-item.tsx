@@ -1,5 +1,6 @@
 import { Menu } from '@headlessui/react'
 import classNames from 'classnames'
+import MenuDivider from 'components/menu-divider'
 import React, { FC } from 'react'
 import { MenuItemRecord } from './types'
 
@@ -9,10 +10,13 @@ interface Props {
 
 const DropdownMenuItem: FC<Props> = ({ record }) => {
   if (record.type === 'divider') {
+    return <MenuDivider />
+  }
+  if (record.type === 'custom') {
     return (
-      <div className="my-1 px-2">
-        <div className="h-px w-full bg-gray-300" />
-      </div>
+      <Menu.Item as="li" className="flex items-center justify-center">
+        {record.value}
+      </Menu.Item>
     )
   }
   return (
@@ -24,7 +28,19 @@ const DropdownMenuItem: FC<Props> = ({ record }) => {
             'flex w-full items-center justify-between whitespace-nowrap rounded px-2 py-0.5 text-xs'
           )}
         >
-          {record.value}
+          {record.icon ? (
+            <div
+              className={classNames(
+                'flex flex-row items-center justify-center',
+                record.iconGap || 'gap-1'
+              )}
+            >
+              <span>{record.icon}</span>
+              <span>{record.value}</span>
+            </div>
+          ) : (
+            record.value
+          )}
           {record.shortcut && (
             <span
               className={classNames(

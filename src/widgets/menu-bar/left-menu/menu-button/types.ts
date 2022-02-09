@@ -1,6 +1,8 @@
 export interface MenuItemData {
-  type?: undefined
+  type?: 'custom'
   key: string
+  icon?: React.ReactNode
+  iconGap?: string
   value: React.ReactNode
   shortcut?: React.ReactNode
   onClick?: () => void
