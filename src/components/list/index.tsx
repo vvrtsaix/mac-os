@@ -7,30 +7,34 @@ interface ListRecord {
 }
 
 interface Props<T extends ListRecord> {
+  id?: string
   label?: string
-  row?: boolean
+  horizontal?: boolean
   className?: string
   dataSource?: T[]
+  gap?: string
   render?: (record: T, index: number) => React.ReactNode
   children?: React.ReactNode[]
 }
 
 const List = <T extends ListRecord>({
+  id,
   label,
   className,
   children,
   dataSource,
   render,
-  row = false,
+  gap,
+  horizontal = false,
 }: Props<T>) => {
   return (
     <ul
+      id={id}
       aria-label={label}
       className={classNames(
         'flex',
-        {
-          'flex-row': row,
-        },
+        horizontal ? 'flex-row' : 'flex-col',
+        gap,
         className
       )}
     >
