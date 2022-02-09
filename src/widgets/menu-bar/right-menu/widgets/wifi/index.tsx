@@ -2,15 +2,19 @@ import { Popover, Transition } from '@headlessui/react'
 import MenuDivider from 'components/menu-divider'
 import MenuLabel from 'components/menu-label'
 import WifiIcon from 'icons/wifi.svg'
-import React, { FC, Fragment, useState } from 'react'
+import React, { FC, Fragment } from 'react'
+import { useAppDispatch, useAppSelector } from 'redux/hooks'
+import { settingsActions } from 'redux/slices/settings'
 import RightMenuButton from '../../components/button'
-import EnableWifi from './enable'
+import SwitchWifi from './switch'
 import WifiList from './wifi-list'
 
 interface Props {}
 
 const WiFi: FC<Props> = () => {
-  const [enabled, setEnabled] = useState(true)
+  const dispatch = useAppDispatch()
+  const enableWiFi = useAppSelector(({ settings }) => settings.enableWiFi)
+
   return (
     <Popover className="relative">
       {() => (
@@ -29,14 +33,23 @@ const WiFi: FC<Props> = () => {
           >
             <Popover.Panel className="absolute right-0 z-10 w-52 p-1">
               <div className="rounded bg-white/80 p-1 backdrop-blur-3xl focus:outline-none">
-                <EnableWifi enabled={enabled} onChange={setEnabled} />
-                <MenuDivider />
-                <MenuLabel htmlFor="wifi-list">Preferred Network</MenuLabel>
-                <WifiList id="wifi-list" />
-                <MenuDivider />
-                <RightMenuButton>
-                  <MenuLabel padding="p-0">Other Networks</MenuLabel>
-                </RightMenuButton>
+                <SwitchWifi
+                  enabled={enableWiFi}
+                  onChange={(_value) => {
+                    dispatch(settingsActions.setWiFi(_value))
+                  }}
+                />
+                {enableWiFi && (
+                  <>
+                    <MenuDivider />
+                    <MenuLabel htmlFor="wifi-list">Preferred Network</MenuLabel>
+                    <WifiList id="wifi-list" />
+                    <MenuDivider />
+                    <RightMenuButton>
+                      <MenuLabel padding="p-0">Other Networks</MenuLabel>
+                    </RightMenuButton>
+                  </>
+                )}
                 <MenuDivider />
                 <RightMenuButton>Network Preferences...</RightMenuButton>
               </div>

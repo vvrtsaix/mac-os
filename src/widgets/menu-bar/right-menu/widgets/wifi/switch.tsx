@@ -7,7 +7,7 @@ interface Props {
   onChange: (value: boolean) => void
 }
 
-const EnableWifi: FC<Props> = ({ enabled, onChange }) => {
+const SwitchWifi: FC<Props> = ({ enabled, onChange }) => {
   return (
     <div className="flex flex-row items-center justify-between whitespace-nowrap px-2 py-0.5 text-xs text-black-text">
       <span>Wi-Fi</span>
@@ -30,4 +30,4 @@ const EnableWifi: FC<Props> = ({ enabled, onChange }) => {
   )
 }
 
-export default EnableWifi
+export default SwitchWifi

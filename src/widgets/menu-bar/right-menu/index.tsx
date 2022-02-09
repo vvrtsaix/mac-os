@@ -21,7 +21,7 @@ const RightMenu: FC<Props> = () => {
         { key: 'search', value: <Search /> },
         { key: 'control', value: <ControlMenu /> },
         { key: 'siri', value: <Siri /> },
-        { key: 'date', value: <Datetime showSeconds /> },
+        { key: 'date', value: <Datetime /> },
       ]}
       render={(record) => (
         <ListItem key={record.key} className="flex items-center justify-center">

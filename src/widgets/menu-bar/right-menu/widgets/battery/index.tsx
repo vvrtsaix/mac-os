@@ -1,20 +1,35 @@
 import { Popover, Transition } from '@headlessui/react'
 import MenuDivider from 'components/menu-divider'
 import MenuLabel from 'components/menu-label'
-import BatteryIcon from 'icons/battery.svg'
-import React, { FC, Fragment } from 'react'
+import React, { FC, Fragment, useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from 'redux/hooks'
+import { settingsActions } from 'redux/slices/settings'
 import RightMenuButton from '../../components/button'
 import AppList from './app-list'
+import BatteryIcon from './icon'
 
 interface Props {}
 
 const Battery: FC<Props> = () => {
+  const dispatch = useAppDispatch()
+  const { batteryPercent } = useAppSelector(({ settings }) => ({
+    batteryPercent: settings.batteryPercent,
+  }))
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      dispatch(settingsActions.setBatteryPercent(batteryPercent - 0.2))
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [batteryPercent, dispatch])
+
   return (
     <Popover className="relative">
       {() => (
         <>
           <Popover.Button className="flex h-6 items-center justify-center rounded px-3 align-middle focus:bg-white/30 focus-visible:outline-none focus-visible:ring-0 active:bg-white/30">
-            <BatteryIcon className="h-5 w-5" />
+            <span className="mr-1 text-xs">{batteryPercent.toFixed(0)}%</span>
+            <BatteryIcon percent={batteryPercent} />
           </Popover.Button>
           <Transition
             as={Fragment}

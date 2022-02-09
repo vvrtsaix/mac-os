@@ -4,7 +4,7 @@ import MenuBar from 'widgets/menu-bar'
 
 const Home: NextPage = () => {
   return (
-    <div className="flex h-screen w-screen flex-col justify-between bg-colorful bg-cover bg-center bg-origin-border">
+    <div className="flex h-screen w-screen flex-col justify-between overflow-hidden bg-colorful bg-cover bg-center bg-origin-border">
       <header>
         <MenuBar />
       </header>
