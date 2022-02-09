@@ -13,6 +13,7 @@ interface Props<T extends ListRecord> {
   className?: string
   dataSource?: T[]
   gap?: string
+  empty?: React.ReactNode
   render?: (record: T, index: number) => React.ReactNode
   children?: React.ReactNode[]
 }
@@ -25,6 +26,7 @@ const List = <T extends ListRecord>({
   dataSource,
   render,
   gap,
+  empty,
   horizontal = false,
 }: Props<T>) => {
   return (
@@ -39,7 +41,9 @@ const List = <T extends ListRecord>({
       )}
     >
       {dataSource && render
-        ? dataSource.map((record, index) => render(record, index))
+        ? dataSource.length > 0
+          ? dataSource.map((record, index) => render(record, index))
+          : empty
         : children}
     </ul>
   )

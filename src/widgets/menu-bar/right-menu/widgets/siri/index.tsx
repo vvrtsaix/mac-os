@@ -43,6 +43,7 @@ const Siri: FC<Props> = ({ size = 18 }) => {
       }}
     >
       <Image
+        priority
         width={size}
         height={size}
         alt="siri-orb"

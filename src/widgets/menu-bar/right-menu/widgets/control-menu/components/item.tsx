@@ -28,7 +28,7 @@ const ControlItem: FC<Props> = ({
       <MenuIconSwitch value={isEnable} onClick={onIconClick}>
         {icon}
       </MenuIconSwitch>
-      <div className="text-left leading-none text-black-text">
+      <div className="truncate text-left leading-none text-black-text">
         <h5 className="whitespace-nowrap text-sm leading-none">{title}</h5>
         {caption && (
           <span className="whitespace-nowrap text-xs leading-none text-gray-400">

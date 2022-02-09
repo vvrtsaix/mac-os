@@ -8,6 +8,8 @@ interface Props {
   step?: number
   prefix?: React.ReactNode
   suffix?: React.ReactNode
+  value?: number
+  onChange?: (value: number) => void
 }
 
 const ControlRangeInput: FC<Props> = ({
@@ -15,6 +17,8 @@ const ControlRangeInput: FC<Props> = ({
   label,
   prefix,
   suffix,
+  value,
+  onChange,
   min = 0,
   max = 100,
   step = 1,
@@ -36,6 +40,8 @@ const ControlRangeInput: FC<Props> = ({
           min={min}
           max={max}
           step={step}
+          value={value}
+          onChange={(e) => onChange?.(Number(e.target.value))}
           className="h-6 w-full appearance-none overflow-hidden rounded-full border border-gray-300 bg-gray-200"
         />
         {suffix}
