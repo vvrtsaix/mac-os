@@ -1,10 +1,12 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit'
 import dockReducer from './slices/dock'
+import finderReducer from './slices/finder'
 import settingsReducer from './slices/settings'
 
 const store = configureStore({
   reducer: {
     dock: dockReducer,
+    finder: finderReducer,
     settings: settingsReducer,
   },
 })

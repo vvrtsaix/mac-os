@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overflow: hidden;
+}
+
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   input[type='range']::-webkit-slider-thumb {
     @apply h-6 w-6 cursor-ew-resize appearance-none rounded-full border bg-white;

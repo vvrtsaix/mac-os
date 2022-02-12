@@ -22,6 +22,7 @@ const initialState: SettingsState = {
   brightness: 100,
   volume: 75,
   batteryPercent: 100,
+  selectedWiFi: wifiList[0].value,
 }
 
 export const setWiFi = createAsyncThunk(
