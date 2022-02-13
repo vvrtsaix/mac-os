@@ -16,7 +16,7 @@ const WindowActions: FC<Props> = ({
   onClickFullscreen,
 }) => {
   return (
-    <div className="group flex flex-row items-center justify-center gap-2">
+    <div className="group flex flex-row items-center justify-start gap-2">
       {onClickClose && (
         <SystemActionButton className="bg-red-500" onClick={onClickClose}>
           <CloseIcon className="h-3 w-3" />
