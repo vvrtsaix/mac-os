@@ -62,7 +62,7 @@ export const settingsSlice = createSlice({
       state.volume = action.payload
     },
     setBatteryPercent: (state, action: PayloadAction<number>) => {
-      state.batteryPercent = action.payload
+      state.batteryPercent = action.payload < 1 ? 0 : action.payload
     },
     selectWiFi: (state, action: PayloadAction<string | undefined>) => {
       state.selectedWiFi = action.payload
