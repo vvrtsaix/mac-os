@@ -1,12 +1,16 @@
 import { Dialog, Transition } from '@headlessui/react'
-import React, { FC, Fragment } from 'react'
+import React, { FC, Fragment, PropsWithChildren } from 'react'
 
 interface Props {
   isOpen: boolean
   onClose: () => void
 }
 
-const Drawer: FC<Props> = ({ children, isOpen, onClose }) => {
+const Drawer: FC<PropsWithChildren<Props>> = ({
+  children,
+  isOpen,
+  onClose,
+}) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog

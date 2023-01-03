@@ -1,10 +1,14 @@
-import React, { FC } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 interface Props {
   isOpen?: boolean
   onClick?: () => void
 }
 
-const DockItem: FC<Props> = ({ children, onClick, isOpen = false }) => {
+const DockItem: FC<PropsWithChildren<Props>> = ({
+  children,
+  onClick,
+  isOpen = false,
+}) => {
   return (
     <button
       onClick={onClick}

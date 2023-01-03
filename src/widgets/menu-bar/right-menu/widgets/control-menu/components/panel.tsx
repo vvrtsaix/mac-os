@@ -1,12 +1,12 @@
 import classNames from 'classnames'
-import React, { FC } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 
 interface Props {
   col?: string
   row?: string
 }
 
-const ControlPanel: FC<Props> = ({
+const ControlPanel: FC<PropsWithChildren<Props>> = ({
   col = 'col-span-1',
   row = 'row-span-1',
   children,

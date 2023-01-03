@@ -1,12 +1,16 @@
 import classNames from 'classnames'
-import React, { FC } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 
 interface Props {
   value?: boolean
   onClick?: () => void
 }
 
-const MenuIconSwitch: FC<Props> = ({ children, value, onClick }) => {
+const MenuIconSwitch: FC<PropsWithChildren<Props>> = ({
+  children,
+  value,
+  onClick,
+}) => {
   return (
     <button
       onClick={onClick}

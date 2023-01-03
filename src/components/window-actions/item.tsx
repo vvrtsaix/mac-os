@@ -1,12 +1,16 @@
 import classNames from 'classnames'
-import React, { FC } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 
 interface Props {
   className?: string
   onClick?: () => void
 }
 
-const SystemActionButton: FC<Props> = ({ children, className, onClick }) => {
+const SystemActionButton: FC<PropsWithChildren<Props>> = ({
+  children,
+  className,
+  onClick,
+}) => {
   return (
     <button
       className={classNames(

@@ -1,6 +1,6 @@
 import { Menu } from '@headlessui/react'
 import classNames from 'classnames'
-import React, { FC } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 import DropdownMenu from './dropdown-menu'
 import { DropdownMenuPlacement, MenuItemRecord } from './types'
 
@@ -11,7 +11,7 @@ interface Props {
   onClick?: () => void
 }
 
-const MenuButton: FC<Props> = ({
+const MenuButton: FC<PropsWithChildren<Props>> = ({
   className,
   children,
   onClick,

@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import WindowActions from 'components/window-actions'
-import React, { FC, useState } from 'react'
+import React, { FC, PropsWithChildren, useState } from 'react'
 import { Rnd, Position } from 'react-rnd'
 import { useAppDispatch, useAppSelector } from 'redux/hooks'
 import { finderActions } from 'redux/slices/finder'
@@ -81,7 +81,7 @@ const Finder: FC<Props> = () => {
   )
 }
 
-const DraggableHeader: FC<{ className?: string }> = ({
+const DraggableHeader: FC<PropsWithChildren<{ className?: string }>> = ({
   className,
   children,
 }) => {
